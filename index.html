@@ -299,26 +299,6 @@
     color:var(--ink-soft);
   }
 
-  /* ===== LIFESTYLE STRIP ===== */
-  .lifestyle{padding:20px 0 100px;}
-  .lifestyle-grid{
-    display:grid;
-    grid-template-columns:1.15fr 1fr 1fr 0.9fr;
-    gap:18px;
-    align-items:end;
-  }
-  .lifestyle-grid figure{
-    border-radius:5px;
-    overflow:hidden;
-    border:1px solid var(--line);
-    box-shadow:0 18px 34px -22px rgba(34,26,24,0.35);
-  }
-  .lifestyle-grid figure img{width:100%;height:100%;object-fit:cover;display:block;}
-  .lifestyle-grid figure:nth-child(1){height:300px;}
-  .lifestyle-grid figure:nth-child(2){height:380px;margin-top:60px;}
-  .lifestyle-grid figure:nth-child(3){height:340px;margin-top:10px;}
-  .lifestyle-grid figure:nth-child(4){height:280px;margin-top:80px;}
-
   /* ===== SERVICES — dossier tabs ===== */
   .services{background:var(--cream-soft);}
   .service-grid{
@@ -350,29 +330,92 @@
   .service-card h3{font-size:1.4rem;margin-bottom:12px;font-weight:500;}
   .service-card p{color:var(--ink-soft);font-size:0.95rem;max-width:340px;}
 
-  /* ===== VALUES ===== */
-  .values{background:var(--maroon);color:var(--cream-soft);}
-  .values .section-head h2{color:var(--cream-soft);}
-  .values .section-head .eyebrow{color:var(--gold);}
-  .values-grid{
-    display:grid;
-    grid-template-columns:repeat(2,1fr);
-    gap:1px;
-    background:rgba(246,241,233,0.18);
-    border:1px solid rgba(246,241,233,0.18);
+  /* ===== BANNER ===== */
+  .banner{
+    position:relative;
+    min-height:480px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    overflow:hidden;
   }
-  .value-card{
-    background:var(--maroon);
-    padding:42px;
+  .banner img{
+    position:absolute;inset:0;
+    width:100%;height:100%;
+    object-fit:cover;
+    object-position:top center;
   }
-  .value-card h3{
+  .banner::after{
+    content:'';
+    position:absolute;inset:0;
+    background:rgba(34,26,24,0.5);
+  }
+  .banner blockquote{
+    position:relative;
+    z-index:2;
+    max-width:700px;
+    text-align:center;
     color:var(--cream-soft);
-    font-size:1.2rem;
+    font-family:'Fraunces', serif;
+    font-style:italic;
     font-weight:500;
-    margin-bottom:12px;
+    font-size:clamp(1.6rem, 3vw, 2.4rem);
+    line-height:1.3;
+    padding:0 40px;
   }
-  .value-card p{color:rgba(246,241,233,0.72);font-size:0.94rem;max-width:340px;}
-  .value-card .rule{width:26px;height:2px;background:var(--gold);margin-bottom:18px;}
+  .banner cite{
+    display:block;
+    margin-top:22px;
+    font-style:normal;
+    font-family:'Archivo', sans-serif;
+    font-size:0.72rem;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+    color:rgba(246,241,233,0.75);
+  }
+
+  /* ===== VALUES — split editorial layout ===== */
+  .values{background:var(--maroon);color:var(--cream-soft);}
+  .values .wrap{
+    display:grid;
+    grid-template-columns:0.85fr 1fr;
+    gap:70px;
+    align-items:center;
+  }
+  .values-visual{position:relative;}
+  .values-visual .frame{
+    border-radius:4px;
+    overflow:hidden;
+    border:1px solid rgba(246,241,233,0.25);
+  }
+  .values-visual .frame img{width:100%;display:block;}
+  .values-visual figcaption{
+    font-family:'Archivo', sans-serif;
+    font-size:0.66rem;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    color:rgba(246,241,233,0.6);
+    margin-top:14px;
+  }
+  .values-copy .eyebrow{color:var(--gold);display:block;margin-bottom:16px;}
+  .values-copy h2{color:var(--cream-soft);font-size:clamp(1.9rem,3vw,2.4rem);margin-bottom:36px;}
+  .value-list{list-style:none;}
+  .value-row{
+    display:grid;
+    grid-template-columns:80px 1fr;
+    gap:24px;
+    padding:24px 0;
+    border-top:1px solid rgba(246,241,233,0.18);
+  }
+  .value-row:last-child{border-bottom:1px solid rgba(246,241,233,0.18);}
+  .value-row .mark{
+    font-family:'Fraunces', serif;
+    font-style:italic;
+    font-size:1.1rem;
+    color:var(--gold);
+  }
+  .value-row h3{color:var(--cream-soft);font-size:1.15rem;font-weight:600;margin-bottom:8px;}
+  .value-row p{color:rgba(246,241,233,0.72);font-size:0.92rem;max-width:380px;}
 
   /* ===== CASE STUDIES ===== */
   .results .wrap{}
@@ -438,41 +481,72 @@
   }
   .case-content p{color:rgba(246,241,233,0.88);font-size:0.9rem;max-width:250px;}
 
-  /* ===== TESTIMONIALS ===== */
-  .testimonials{background:var(--cream-soft);}
+  /* ===== TESTIMONIALS — featured layout ===== */
+  .testimonials{background:var(--rose);}
+  .testimonials .section-head .eyebrow{color:var(--maroon);}
+  .featured-testi{
+    background:var(--cream-soft);
+    border-radius:8px;
+    padding:56px;
+    margin-bottom:24px;
+    display:grid;
+    grid-template-columns:auto 1fr;
+    gap:32px;
+    align-items:center;
+    box-shadow:0 24px 50px -30px rgba(34,26,24,0.25);
+  }
+  .avatar{
+    width:64px;height:64px;
+    border-radius:50%;
+    background:var(--maroon);
+    color:var(--cream-soft);
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    font-size:1.3rem;
+    display:flex;align-items:center;justify-content:center;
+    flex-shrink:0;
+  }
+  .featured-testi .quote-mark{
+    font-family:'Fraunces', serif;
+    font-size:2.4rem;
+    color:var(--maroon);
+    line-height:1;
+    margin-bottom:10px;
+    display:block;
+  }
+  .featured-testi p.quote{
+    font-family:'Fraunces', serif;
+    font-weight:500;
+    font-size:1.5rem;
+    line-height:1.35;
+    color:var(--ink);
+    margin-bottom:20px;
+  }
+  .featured-testi .testi-attr{border:none;padding:0;}
   .testi-grid{
     display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:2px;
-    background:var(--line);
-    border:1px solid var(--line);
+    grid-template-columns:repeat(2,1fr);
+    gap:24px;
   }
   .testi-card{
     background:var(--cream-soft);
-    padding:38px 34px;
+    border-radius:8px;
+    padding:34px;
     display:flex;
     flex-direction:column;
-    justify-content:space-between;
-    min-height:280px;
+    gap:18px;
   }
-  .testi-card .quote-mark{
-    font-family:'Fraunces', serif;
-    font-size:3.4rem;
-    color:var(--rose);
-    line-height:1;
-    margin-bottom:6px;
-  }
-  .testi-card p.quote{font-size:1rem;color:var(--ink);margin-bottom:26px;}
+  .testi-card .top-row{display:flex;align-items:center;gap:14px;}
+  .testi-card .avatar{width:46px;height:46px;font-size:1rem;}
+  .testi-card p.quote{font-size:1.02rem;color:var(--ink);line-height:1.5;}
   .testi-attr{
     font-family:'Archivo', sans-serif;
     font-size:0.72rem;
     letter-spacing:0.04em;
     text-transform:uppercase;
     color:var(--ink-soft);
-    border-top:1px solid var(--line);
-    padding-top:14px;
   }
-  .testi-attr b{display:block;color:var(--ink);font-family:'Archivo',sans-serif;font-size:0.82rem;margin-bottom:2px;}
+  .testi-attr b{display:block;color:var(--ink);font-family:'Archivo',sans-serif;font-size:0.86rem;margin-bottom:2px;text-transform:none;letter-spacing:0;}
 
   /* ===== CONTACT ===== */
   .contact{
@@ -526,16 +600,13 @@
   @media (max-width:980px){
     .nav-links{display:none;}
     .menu-toggle{display:block;}
-    .hero .wrap, .about .wrap{grid-template-columns:1fr;}
+    .hero .wrap, .about .wrap, .values .wrap{grid-template-columns:1fr;}
     .hero-visual{order:-1;max-width:380px;margin:0 auto;}
     .about-visual{max-width:380px;margin:0 auto 70px;}
-    .service-grid, .values-grid, .testi-grid, .case-grid{grid-template-columns:1fr;}
+    .values-visual{max-width:380px;margin:0 auto 50px;}
+    .service-grid, .testi-grid, .case-grid{grid-template-columns:1fr;}
     .results-grid{grid-template-columns:1fr;gap:36px;}
-    .lifestyle-grid{grid-template-columns:1fr 1fr;gap:12px;}
-    .lifestyle-grid figure:nth-child(1),
-    .lifestyle-grid figure:nth-child(2),
-    .lifestyle-grid figure:nth-child(3),
-    .lifestyle-grid figure:nth-child(4){height:220px;margin-top:0;}
+    .featured-testi{grid-template-columns:1fr;text-align:left;padding:36px;}
     .wrap{padding:0 24px;}
     section{padding:80px 0;}
     .stamp{left:auto;right:-10px;top:-14px;}
@@ -623,18 +694,6 @@
     </div>
   </section>
 
-  <!-- LIFESTYLE STRIP -->
-  <section class="lifestyle">
-    <div class="wrap">
-      <div class="lifestyle-grid reveal">
-        <figure><img src="download%20(18).jpg" alt="Reaching for a reference book on hiring and M&A"></figure>
-        <figure><img src="%E2%9C%A8%20Pequenos%20lembretes%20pra%20iniciar%20setembro%20com%20a%20mentalidade%20de%20sucesso%20!.jpg" alt="Blazer and notebook on a chair"></figure>
-        <figure><img src="New%20Year%2C%20new%20me.jpg" alt="Own Your Success planner beside coffee"></figure>
-        <figure><img src="download%20(17).jpg" alt="Holding a laptop and card holder"></figure>
-      </div>
-    </div>
-  </section>
-
   <!-- SERVICES -->
   <section class="services" id="services">
     <div class="wrap">
@@ -667,34 +726,57 @@
     </div>
   </section>
 
+  <!-- BANNER -->
+  <section class="banner">
+    <img src="priya-full.jpg" alt="Priya Rao">
+    <blockquote>
+      "The best HR work is the kind no one notices — because it just works."
+      <cite>Priya Rao, People Ops &amp; Talent Strategy</cite>
+    </blockquote>
+  </section>
+
   <!-- VALUES -->
   <section class="values">
     <div class="wrap">
-      <div class="section-head reveal">
+      <div class="values-visual reveal">
+        <div class="frame">
+          <img src="%E2%9C%A8%20Pequenos%20lembretes%20pra%20iniciar%20setembro%20com%20a%20mentalidade%20de%20sucesso%20!.jpg" alt="Blazer and notebook, ready for a client session">
+        </div>
+        <figcaption>Before every client session</figcaption>
+      </div>
+      <div class="values-copy reveal">
         <span class="eyebrow">How I Work</span>
         <h2>The principles behind every engagement.</h2>
-      </div>
-    </div>
-    <div class="values-grid">
-      <div class="value-card reveal">
-        <div class="rule"></div>
-        <h3>Clarity Over Jargon</h3>
-        <p>If a policy needs a glossary, it's not ready to ship.</p>
-      </div>
-      <div class="value-card reveal">
-        <div class="rule"></div>
-        <h3>Built To Last</h3>
-        <p>Systems that survive the next reorg, not just this quarter.</p>
-      </div>
-      <div class="value-card reveal">
-        <div class="rule"></div>
-        <h3>People First, Data Informed</h3>
-        <p>Good instincts, checked against real numbers.</p>
-      </div>
-      <div class="value-card reveal">
-        <div class="rule"></div>
-        <h3>Quiet Confidence</h3>
-        <p>The best HR work is the kind no one notices — because it just works.</p>
+        <ul class="value-list">
+          <li class="value-row">
+            <span class="mark">01</span>
+            <div>
+              <h3>Clarity Over Jargon</h3>
+              <p>If a policy needs a glossary, it's not ready to ship.</p>
+            </div>
+          </li>
+          <li class="value-row">
+            <span class="mark">02</span>
+            <div>
+              <h3>Built To Last</h3>
+              <p>Systems that survive the next reorg, not just this quarter.</p>
+            </div>
+          </li>
+          <li class="value-row">
+            <span class="mark">03</span>
+            <div>
+              <h3>People First, Data Informed</h3>
+              <p>Good instincts, checked against real numbers.</p>
+            </div>
+          </li>
+          <li class="value-row">
+            <span class="mark">04</span>
+            <div>
+              <h3>Quiet Confidence</h3>
+              <p>The best HR work is the kind no one notices — because it just works.</p>
+            </div>
+          </li>
+        </ul>
       </div>
     </div>
   </section>
@@ -739,28 +821,31 @@
         <span class="eyebrow">Client Notes</span>
         <h2>What it's like to work together.</h2>
       </div>
-    </div>
-    <div class="testi-grid">
-      <div class="testi-card reveal">
+
+      <div class="featured-testi reveal">
+        <div class="avatar">RM</div>
         <div>
-          <div class="quote-mark">"</div>
+          <span class="quote-mark">"</span>
           <p class="quote">Priya rebuilt our entire hiring process in three weeks. We haven't made a bad hire since.</p>
+          <div class="testi-attr"><b>Rohan Mehta</b>Founder, Loomstack</div>
         </div>
-        <div class="testi-attr"><b>Rohan Mehta</b>Founder, Loomstack</div>
       </div>
-      <div class="testi-card reveal">
-        <div>
-          <div class="quote-mark">"</div>
+
+      <div class="testi-grid">
+        <div class="testi-card reveal">
+          <div class="top-row">
+            <div class="avatar">AI</div>
+            <div class="testi-attr"><b>Ananya Iyer</b>Head of Ops, Fernbase</div>
+          </div>
           <p class="quote">She has this rare skill of making HR feel human instead of bureaucratic.</p>
         </div>
-        <div class="testi-attr"><b>Ananya Iyer</b>Head of Ops, Fernbase</div>
-      </div>
-      <div class="testi-card reveal">
-        <div>
-          <div class="quote-mark">"</div>
+        <div class="testi-card reveal">
+          <div class="top-row">
+            <div class="avatar">DS</div>
+            <div class="testi-attr"><b>Diego Salas</b>COO, Northline</div>
+          </div>
           <p class="quote">Brought Priya in for one reorg. Kept her on retainer for everything since.</p>
         </div>
-        <div class="testi-attr"><b>Diego Salas</b>COO, Northline</div>
       </div>
     </div>
   </section>
