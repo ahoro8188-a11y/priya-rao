@@ -6,7 +6,7 @@
 <title>Priya Rao — People Ops &amp; Talent Strategy</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;0,6..96,600;1,6..96,400&family=Inter:wght@400;500;600&family=Archivo:wght@500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Inter:wght@400;500;600&family=Archivo:wght@500;600;700&display=swap" rel="stylesheet">
 <style>
   :root{
     --cream:#F6F1E9;
@@ -46,8 +46,9 @@
   }
 
   h1,h2,h3{
-    font-family:'Bodoni Moda', serif;
-    font-weight:500;
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    font-optical-sizing:auto;
     letter-spacing:-0.01em;
     color:var(--ink);
   }
@@ -106,7 +107,7 @@
     justify-content:space-between;
   }
   .logo{
-    font-family:'Bodoni Moda', serif;
+    font-family:'Fraunces', serif;
     font-size:1.25rem;
     font-weight:500;
     letter-spacing:0.01em;
@@ -224,7 +225,7 @@
     animation:scroll-left 28s linear infinite;
   }
   .marquee-track span{
-    font-family:'Bodoni Moda', serif;
+    font-family:'Fraunces', serif;
     font-style:italic;
     font-size:1.35rem;
     padding:0 28px;
@@ -284,7 +285,7 @@
     padding-top:28px;
   }
   .about-stats div b{
-    font-family:'Bodoni Moda', serif;
+    font-family:'Fraunces', serif;
     font-size:1.9rem;
     display:block;
     color:var(--maroon);
@@ -297,6 +298,26 @@
     text-transform:uppercase;
     color:var(--ink-soft);
   }
+
+  /* ===== LIFESTYLE STRIP ===== */
+  .lifestyle{padding:20px 0 100px;}
+  .lifestyle-grid{
+    display:grid;
+    grid-template-columns:1.15fr 1fr 1fr 0.9fr;
+    gap:18px;
+    align-items:end;
+  }
+  .lifestyle-grid figure{
+    border-radius:5px;
+    overflow:hidden;
+    border:1px solid var(--line);
+    box-shadow:0 18px 34px -22px rgba(34,26,24,0.35);
+  }
+  .lifestyle-grid figure img{width:100%;height:100%;object-fit:cover;display:block;}
+  .lifestyle-grid figure:nth-child(1){height:300px;}
+  .lifestyle-grid figure:nth-child(2){height:380px;margin-top:60px;}
+  .lifestyle-grid figure:nth-child(3){height:340px;margin-top:10px;}
+  .lifestyle-grid figure:nth-child(4){height:280px;margin-top:80px;}
 
   /* ===== SERVICES — dossier tabs ===== */
   .services{background:var(--cream-soft);}
@@ -363,7 +384,7 @@
     padding-top:56px;
   }
   .result-item b{
-    font-family:'Bodoni Moda', serif;
+    font-family:'Fraunces', serif;
     font-size:3.4rem;
     font-weight:500;
     color:var(--maroon);
@@ -372,6 +393,50 @@
     margin-bottom:16px;
   }
   .result-item p{color:var(--ink-soft);font-size:0.95rem;max-width:280px;}
+
+  /* ===== CASE STUDY PHOTO CARDS ===== */
+  .case-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:22px;
+  }
+  .case-card{
+    position:relative;
+    border-radius:8px;
+    overflow:hidden;
+    min-height:440px;
+    display:flex;
+    align-items:flex-end;
+  }
+  .case-card img{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    transition:transform .6s var(--ease);
+  }
+  .case-card:hover img{transform:scale(1.06);}
+  .case-card::after{
+    content:'';
+    position:absolute;inset:0;
+    background:linear-gradient(180deg, rgba(34,26,24,0) 32%, rgba(34,26,24,0.88) 100%);
+  }
+  .case-content{
+    position:relative;
+    z-index:2;
+    padding:34px 30px;
+    color:var(--cream-soft);
+  }
+  .case-content b{
+    font-family:'Fraunces', serif;
+    font-size:2.6rem;
+    font-weight:600;
+    display:block;
+    margin-bottom:10px;
+    line-height:1;
+  }
+  .case-content p{color:rgba(246,241,233,0.88);font-size:0.9rem;max-width:250px;}
 
   /* ===== TESTIMONIALS ===== */
   .testimonials{background:var(--cream-soft);}
@@ -391,7 +456,7 @@
     min-height:280px;
   }
   .testi-card .quote-mark{
-    font-family:'Bodoni Moda', serif;
+    font-family:'Fraunces', serif;
     font-size:3.4rem;
     color:var(--rose);
     line-height:1;
@@ -464,8 +529,13 @@
     .hero .wrap, .about .wrap{grid-template-columns:1fr;}
     .hero-visual{order:-1;max-width:380px;margin:0 auto;}
     .about-visual{max-width:380px;margin:0 auto 70px;}
-    .service-grid, .values-grid, .testi-grid{grid-template-columns:1fr;}
+    .service-grid, .values-grid, .testi-grid, .case-grid{grid-template-columns:1fr;}
     .results-grid{grid-template-columns:1fr;gap:36px;}
+    .lifestyle-grid{grid-template-columns:1fr 1fr;gap:12px;}
+    .lifestyle-grid figure:nth-child(1),
+    .lifestyle-grid figure:nth-child(2),
+    .lifestyle-grid figure:nth-child(3),
+    .lifestyle-grid figure:nth-child(4){height:220px;margin-top:0;}
     .wrap{padding:0 24px;}
     section{padding:80px 0;}
     .stamp{left:auto;right:-10px;top:-14px;}
@@ -510,7 +580,7 @@
       </div>
       <div class="hero-visual">
         <div class="stamp">50+ TEAMS<br>ADVISED</div>
-        <div class="frame"><img src="assets/priya-hero.jpg" alt="Priya Rao, portrait"></div>
+        <div class="frame"><img src="priya-hero.jpg" alt="Priya Rao, portrait"></div>
       </div>
     </div>
   </section>
@@ -533,9 +603,9 @@
   <section class="about" id="about">
     <div class="wrap">
       <div class="about-visual reveal">
-        <div class="main-frame"><img src="assets/priya-desk.jpg" alt="Priya Rao reviewing hiring documents at her desk"></div>
+        <div class="main-frame"><img src="priya-desk.jpg" alt="Priya Rao reviewing hiring documents at her desk"></div>
         <figure class="polaroid">
-          <img src="assets/priya-full.jpg" alt="Priya Rao">
+          <img src="priya-full.jpg" alt="Priya Rao">
           <figcaption>On-site, mid-review</figcaption>
         </figure>
       </div>
@@ -549,6 +619,18 @@
           <div><b>8 yrs</b><span>In People Ops</span></div>
           <div><b>3x</b><span>Founding HR Hire</span></div>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LIFESTYLE STRIP -->
+  <section class="lifestyle">
+    <div class="wrap">
+      <div class="lifestyle-grid reveal">
+        <figure><img src="download%20(18).jpg" alt="Reaching for a reference book on hiring and M&A"></figure>
+        <figure><img src="%E2%9C%A8%20Pequenos%20lembretes%20pra%20iniciar%20setembro%20com%20a%20mentalidade%20de%20sucesso%20!.jpg" alt="Blazer and notebook on a chair"></figure>
+        <figure><img src="New%20Year%2C%20new%20me.jpg" alt="Own Your Success planner beside coffee"></figure>
+        <figure><img src="download%20(17).jpg" alt="Holding a laptop and card holder"></figure>
       </div>
     </div>
   </section>
@@ -624,18 +706,27 @@
         <span class="eyebrow">Case Studies</span>
         <h2>A few engagements, in numbers.</h2>
       </div>
-      <div class="results-grid">
-        <div class="result-item reveal">
-          <b>40%</b>
-          <p>Faster time-to-hire after rebuilding the pipeline for a 60-person product team.</p>
+      <div class="case-grid">
+        <div class="case-card reveal">
+          <img src="download%20(18).jpg" alt="Hiring systems case study">
+          <div class="case-content">
+            <b>40%</b>
+            <p>Faster time-to-hire after rebuilding the pipeline for a 60-person product team.</p>
+          </div>
         </div>
-        <div class="result-item reveal">
-          <b>3x</b>
-          <p>Increase in review completion after replacing a dreaded annual cycle with a lightweight quarterly rhythm.</p>
+        <div class="case-card reveal">
+          <img src="New%20Year%2C%20new%20me.jpg" alt="Performance framework case study">
+          <div class="case-content">
+            <b>3x</b>
+            <p>Increase in review completion after replacing a dreaded annual cycle with a lightweight quarterly rhythm.</p>
+          </div>
         </div>
-        <div class="result-item reveal">
-          <b>12</b>
-          <p>First-time managers coached through their team's first reorg.</p>
+        <div class="case-card reveal">
+          <img src="download%20(17).jpg" alt="Leadership coaching case study">
+          <div class="case-content">
+            <b>12</b>
+            <p>First-time managers coached through their team's first reorg.</p>
+          </div>
         </div>
       </div>
     </div>
